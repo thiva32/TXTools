@@ -17,15 +17,19 @@ import bpy
 
 
 from . import main_ui
+from .validation import validation_op
+
 
 
 
 
 def register():
     main_ui.register()
+    validation_op.register()
 
 def unregister():
     main_ui.unregister()
+    validation_op.unregister()
 
 if __name__ == "__main__":
     register()
