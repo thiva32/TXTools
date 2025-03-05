@@ -1,4 +1,5 @@
 import bpy
+from mathutils import Vector
 
 
 class TXT_OP_FreezeTransform(bpy.types.Operator):
@@ -20,14 +21,11 @@ class TXT_OP_FreezeTransform(bpy.types.Operator):
         rotation = obj.rotation_euler
         scale = obj.scale
 
-        if (location != (0,0,0) or rotation != (0,0,0) or scale != (1,1,1)):
-
-            self.report({'INFO'},"Transform Needs to be applied")
+        if ((location != Vector(0.0,0.0,0.0))  or (rotation != Vector(0.0,0.0,0.0))  or (scale != Vector(1.0,1.0,1.0)) ): 
             bpy.ops.object.transform_apply(location=True,rotation=True,scale=True) 
-
+            self.report({'INFO'},"Transform Has Been Applied")         
         else:
-            
-            self.report({'INFO'},"Transform Has Been Applied")
+            self.report({'INFO'},"Transform is good") 
 
         return{'FINISHED'}
     
