@@ -4,7 +4,7 @@ class TXT_PT_MainPanel(bpy.types.Panel):
 
     ''' Main Panel for the Addon '''
 
-    bl_idname = "panel.mainpanel"
+    bl_idname = "TXT_PT_mainpanel"
     bl_label = "TXtool 2025"
     bl_space_type = 'VIEW_3D'
     bl_region_type = "UI"

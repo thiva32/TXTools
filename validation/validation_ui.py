@@ -5,7 +5,7 @@ class TXT_PT_CleanupTools(bpy.types.Panel):
 
     '''Freeze All Transform'''
 
-    bl_idname = "panel.cleanuptools"
+    bl_idname = "TXT_PT_cleanuptools"
     bl_label = "Cleanup Tools"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
