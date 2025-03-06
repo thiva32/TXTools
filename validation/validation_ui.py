@@ -1,27 +1,30 @@
 import bpy
 
 
-class TXT_PT_FreezeTransform(bpy.types.Panel):
+class TXT_PT_CleanupTools(bpy.types.Panel):
 
     '''Freeze All Transform'''
 
-    bl_idname = "panel.freezetransform"
-    bl_label = "Freeze Transform"
+    bl_idname = "panel.cleanuptools"
+    bl_label = "Cleanup Tools"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
     bl_category = 'TXtool 2025'
     bl_parent_id = 'panel.mainpanel'
+    bl_context = 'OBJECT'
 
     def draw (self,context):
 
         layout = self.layout
         box = layout.box()
         row = box.row(align=True)
+        #Freeze transform operator button
         row.operator('operator.freezetransform')
 
 
+#classes to register 
+vld_panels = [TXT_PT_CleanupTools]
 
-vld_panels = [TXT_PT_FreezeTransform]
 
 def register():
     for vld_pnl in vld_panels:

@@ -28,9 +28,9 @@ def register():
         bpy.utils.register_class(panel)
         validation_ui.register()
 
-def uregister():
+def unregister():
     for panel in panels:
-        bpy.utils.uregister_class(panel)
+        bpy.utils.unregister_class(panel)
         validation_ui.unregister()
 
 
