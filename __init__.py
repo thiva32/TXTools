@@ -20,9 +20,6 @@ from . import main_ui
 from .validation import validation_op
 
 
-
-
-
 def register():
     main_ui.register()
     validation_op.register()

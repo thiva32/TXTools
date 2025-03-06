@@ -10,7 +10,7 @@ class TXT_PT_CleanupTools(bpy.types.Panel):
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
     bl_category = 'TXtool 2025'
-    bl_parent_id = 'panel.mainpanel'
+    bl_parent_id = 'TXT_PT_mainpanel'
     bl_context = 'OBJECT'
 
     def draw (self,context):
@@ -20,6 +20,10 @@ class TXT_PT_CleanupTools(bpy.types.Panel):
         row = box.row(align=True)
         #Freeze transform operator button
         row.operator('operator.freezetransform')
+        #adds a new row
+        row = box.row(align=True)
+        #check for ngon operator button
+        row.operator('operator.ngon')
 
 
 #classes to register 

@@ -1,4 +1,5 @@
 import bpy
+import bmesh
 from mathutils import Vector,Euler
 
 #This operator checks for the current transform of the mesh .
@@ -35,9 +36,38 @@ class TXT_OP_FreezeTransform(bpy.types.Operator):
 
         return{'FINISHED'}
         
-        
 
-vld_operator = [TXT_OP_FreezeTransform]
+class TXT_OT_NGON(bpy.types.Operator):
+
+    bl_idname = "operator.ngon"
+    bl_label = "Ngon"
+    bl_options = {'REGISTER','UNDO'}
+
+
+    def execute(self, context):
+        #check if mesh is in edit mode , if not enter edit mode
+        if bpy.ops.object.mode_set.poll():
+            bpy.ops.object.mode_set(mode='EDIT')
+
+            #select mesh ngons
+            bpy.ops.mesh.select_face_by_sides(number=4 , type='GREATER')
+            mesh = bpy.context.active_object.data
+            bm = bmesh.from_edit_mesh(mesh)
+            total_selected_faces = sum(1 for face in bm.faces if face.select)
+
+            if (total_selected_faces >= 1):
+                self.report({'WARNING'},f"Total Ngons : {total_selected_faces}")
+            else:
+                self.report({'INFO'},f"No Ngons Detected")
+
+        else:
+            print("No Object is currently Selected")
+
+        return{'FINISHED'}
+
+
+        
+vld_operator = [TXT_OP_FreezeTransform,TXT_OT_NGON]
 
 def register():
     for vld_ops in vld_operator:
