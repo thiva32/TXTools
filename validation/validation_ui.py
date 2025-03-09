@@ -20,10 +20,13 @@ class TXT_PT_CleanupTools(bpy.types.Panel):
         row = box.row(align=True)
         #Freeze transform operator button
         row.operator('operator.freezetransform')
+        row.enabled = True
         #adds a new row
         row = box.row(align=True)
         #check for ngon operator button
         row.operator('operator.ngon')
+        row.enabled = True
+
 
 
 #classes to register 

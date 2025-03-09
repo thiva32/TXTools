@@ -15,6 +15,7 @@ class TXT_OP_FreezeTransform(bpy.types.Operator):
     bl_label = "Freeze Transform"
     bl_options = {'REGISTER','UNDO'}
 
+    
     @classmethod 
     def poll(cls,context):
         #This makes sure objects are selected
@@ -67,7 +68,7 @@ class TXT_OT_NGON(bpy.types.Operator):
 
 
         
-vld_operator = [TXT_OP_FreezeTransform,TXT_OT_NGON]
+vld_operator = [TXT_OP_FreezeTransform]
 
 def register():
     for vld_ops in vld_operator:
